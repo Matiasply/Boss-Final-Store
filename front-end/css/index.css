@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Geom:ital,wght@0,300..900;1,300..900&family=Italiana&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    gap: 20px;
+    width: 100vw;
+    height: 100vh;
+    background-color: #F5FBE6;
+    font-family: "Italiana", sans-serif;
+}
+
+.header {
+    width: 50%;
+    height: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-size: 6rem;
+}
+
+h2 {
+    font-size: 5rem;
+}
+
+.header .header-text h1, h2 {
+    color: #FE7F2D;
+}
+
+.header .header-text h1 {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.login-box {
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    background-color: #215E61;
+    border-top-left-radius: 36px;
+    color:#FFF;
+}
+
+.login-box .login-form {
+    text-align: left;
+    padding-left: 25%;
+}
+
+.login-box .login-form label {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-size: 4rem;
+}
+
+.login-box .login-form input {
+    width: 75%;
+    height: 50px;
+    border: none;
+    border-radius: 36px;
+    background-color: #233D4D;
+}
+
+.login-box .login-form input::placeholder {
+    color: #F5FBE6;
+    text-align: center;
+    font-size: 2rem;
+}
+
+button {
+    background-color: #233D4D;
+    border: none;
+    border-radius: 36px;
+    width: 75%;
+    height: 50px;
+    margin-top: 20px;
+    padding: 10px;
+    color: #F5FBE6;
+    text-align: center;
+    font-size: 2rem;
+}
+
+button:hover {
+    background-color: #12191D;
+    cursor: pointer;
+}
+
+.login-box h2 {
+    color: #FFF;
+    font-size: 5.5rem;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.login-box .login-form .links {
+    margin-top: 25%;
+    gap:5px;
+    font-size: 1.5rem;
+}
+
+.login-box .login-form .links a {
+    color:#FE7F2D;
+}
