@@ -7,6 +7,34 @@
     <title>Boss Final Store Login</title>
 </head>
 <body>
+    <!--O header será apenas no layout mobile-->
+    <header class="mobile-header"></header>
+    <main>
+        <!--O cabeçalho desktop ficará na lateral esquerda-->
+        <div class="desktop-header">
+            <h1>Bem-vindo!</h1>
+            <h2>Boss Final Store</h2>
+        </div>
+        <!--A box de login no desktop ficará à direita-->
+        <div class="login-box">
+            <h2>LOGIN</h2>
+            <form>
+                <label for="Usuário">Usuário:</label>
+                <br>
+                <input type="text" id="Usuário" name="Usuário" placeholder="Digite seu nome de usuário" required>
+                <br>
+                <label for="Senha">Senha:</label>
+                <br>
+                <input type="password" id="Senha" name="Senha" placeholder="Digite sua senha" required>
+                <br>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>Não tem uma conta? <a href="">Clique aqui</a> para se registrar</p>
+        <p><a href="">Entrar como visitante</a></p>
+    </footer>
     
 </body>
 </html>
