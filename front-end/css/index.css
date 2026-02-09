@@ -55,13 +55,12 @@ h2 {
 .login-box .login-form label {
     display: inline-block;
     margin-bottom: 5px;
-    font-size: clamp(48px, 2vw, 64px);
+    font-size: clamp(36px, 2vw, 64px);
 }
 
 .login-box .login-form input {
     width: 75%;
-    min-width: 200px;
-    height: 50px;
+    height: clamp(30px, 2vh, 50px);
     border: none;
     border-radius: 36px;
     background-color: #233D4D;
@@ -78,7 +77,7 @@ button {
     border: none;
     border-radius: 36px;
     width: 75%;
-    height: 50px;
+    height: clamp(30px, 2vh, 50px);
     margin-top: 20px;
     padding: 10px;
     color: #F5FBE6;
@@ -102,7 +101,7 @@ button:hover {
 .login-box .login-form .links {
     margin-top: 25%;
     gap:5px;
-    font-size: 1.5rem;
+    font-size: clamp(16px, 2vw, 24px);
 }
 
 .login-box .login-form .links a {
@@ -111,5 +110,28 @@ button:hover {
 
 /*Adicionando design responsivo para mobile*/
 @media (max-width: 768px) {
-    
+
+    main {
+        flex-direction: column;
+    }
+
+    #hero-subtitle {
+        display: none;
+    }
+
+    .header {
+        width: 100%;
+    }
+
+    .login-box {
+        width: 100%;
+    }
+
+    .login-box .login-form .links {
+    margin-top: 10%;
+    gap:5px;
+}
+
+
+
 }
