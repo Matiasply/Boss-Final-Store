@@ -59,17 +59,30 @@ h2 {
 }
 
 .login-box .login-form input {
+    font-size: clamp(14px, 2vw, 18px) ;
+    color: #F5FBE6;
     width: 75%;
     height: clamp(30px, 2vh, 50px);
     border: none;
     border-radius: 36px;
     background-color: #233D4D;
+    text-align: center;
 }
 
 .login-box .login-form input::placeholder {
     color: #F5FBE6;
     text-align: center;
     font-size: clamp(14px, 2vw, 18px);
+}
+
+.login-box .login-form input:hover {
+    border-color: blue;
+
+}
+
+.login-box .login-form input:focus::placeholder {
+    opacity: 0;
+    
 }
 
 button {
@@ -128,7 +141,7 @@ button:hover {
     }
 
     .login-box .login-form .links {
-    margin-top: 10%;
+    margin-top: 10px;
     gap:5px;
 }
 
