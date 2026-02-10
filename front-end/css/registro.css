@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 20px;
+    width: 100vw;
+    height: 100vh;
+    background-color: #F5FBE6;
+}
+
+h1 {
+    font-size: clamp(80px, 2vw, 96px);
+}
+
+h2 {
+    font-size: clamp(64px, 2vw, 80px);
+}
+
+.header {
+    width: 50%;
+    height: 100%;
+    text-align: center;
+}
+
+.header .header-text h1, h2 {
+    color: #FE7F2D;
+}
+
+.header .header-text h1 {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.register-box {
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    color: #FFF;
+    background-color: #215E61;
+    border-top-right-radius: 36px;
+}
+
+.register-box .botao-voltar button {
+    position: fixed;
+    margin-top: 0;
+    left: 0;
+    width: 4%;
+    height: 5%;
+    color: #F5FBE6;
+    font-size: clamp(16px, 2vw, 30px);
+    background-color: #FE7F2D;
+    border-radius: 0;
+    border-bottom-right-radius: 36px;
+}
+
+
+
+.register-box h2 {
+    color: #FFF;
+    font-size: clamp(72px, 2vw, 88px);
+    margin-top: 100px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.register-box .register-form {
+    text-align: left;
+    padding-left: 25%;
+}
+
+.register-box .register-form label {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: clamp(36px, 2vw, 64px);
+}
+
+.register-box .register-form input {
+    font-size: clamp(14px, 2vw, 18px) ;
+    color: #F5FBE6;
+    width: 75%;
+    height: clamp(30px, 2vh, 50px);
+    border: none;
+    border-radius: 36px;
+    background-color: #233D4D;
+    text-align: center;
+}
+
+.register-box .register-form input:focus::placeholder {
+    opacity: 0;
+}
+
+.register-box .register-form .checkboxes label {
+    font-size: clamp(14px, 2vw, 24px);
+}
+
+.register-box .register-form .checkboxes .check input {
+    width: clamp(10px, 2vw, 20px);
+    height: clamp(10px, 2vh, 20px);
+    border-radius: 36px;
+    cursor: pointer;
+
+}
+
+.register-box .register-form .checkboxes .check input:hover {
+    transform: scale(1.1);
+}
+
+.register-box .register-form .checkboxes .check input:focus {
+    outline: 2px solid #4CAF50; 
+    outline-offset: 2px;
+}
+
+.register-box .register-form .checkboxes h3 {
+    font-size: clamp(18px, 2vw, 32px);
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #233D4D;
+    border: none;
+    border-radius: 36px;
+    width: 75%;
+    height: clamp(30px, 2vh, 50px);
+    margin-top: 20px;
+    padding: 10px;
+    color: #F5FBE6;
+    text-align: center;
+    font-size: clamp(18px, 2vw, 22px);
+}
+
+button:hover {
+    background-color: #12191D;
+    cursor: pointer;
+}
+
+.register-box .register-form .links {
+    margin-top: clamp(10px, 2vh, 20px);
+    gap:5px;
+    font-size: clamp(16px, 2vw, 24px);
+}
+
+.register-box .register-form .links a {
+    color:#FE7F2D;
+}
