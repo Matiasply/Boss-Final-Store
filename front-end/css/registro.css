@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Geom:ital,wght@0,300..900;1,300..900&family=Italiana&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -11,14 +13,16 @@ main {
     width: 100vw;
     height: 100vh;
     background-color: #F5FBE6;
+    font-family: "Italiana", sans-serif;
 }
 
+
 h1 {
-    font-size: clamp(80px, 2vw, 96px);
+    font-size: clamp(55px, 5vw, 96px);
 }
 
 h2 {
-    font-size: clamp(64px, 2vw, 80px);
+    font-size: clamp(50px, 5vw, 80px);
 }
 
 .header {
@@ -37,6 +41,8 @@ h2 {
 }
 
 .register-box {
+    display: flex;
+    flex-direction: column;
     width: 50%;
     height: 100%;
     text-align: center;
@@ -45,26 +51,24 @@ h2 {
     border-top-right-radius: 36px;
 }
 
-.register-box .botao-voltar button {
+.botao-voltar button {
     position: fixed;
     margin-top: 0;
     left: 0;
     width: 4%;
     height: 5%;
     color: #F5FBE6;
-    font-size: clamp(16px, 2vw, 30px);
+    font-size: clamp(18px, 4vw, 30px);
     background-color: #FE7F2D;
     border-radius: 0;
     border-bottom-right-radius: 36px;
 }
 
-
-
 .register-box h2 {
     color: #FFF;
-    font-size: clamp(72px, 2vw, 88px);
+    font-size: clamp(60px, 4vw, 88px);
     margin-top: 100px;
-    margin-bottom: 100px;
+    margin-bottom: clamp(50px, 2vh, 100px);
     text-align: center;
 }
 
@@ -75,12 +79,12 @@ h2 {
 
 .register-box .register-form label {
     display: inline-block;
-    margin-bottom: 10px;
-    font-size: clamp(36px, 2vw, 64px);
+    margin-bottom: 5px;
+    font-size: clamp(36px, 4vw, 64px);
 }
 
 .register-box .register-form input {
-    font-size: clamp(14px, 2vw, 18px) ;
+    font-size: clamp(14px, 4vw, 18px) ;
     color: #F5FBE6;
     width: 75%;
     height: clamp(30px, 2vh, 50px);
@@ -95,7 +99,7 @@ h2 {
 }
 
 .register-box .register-form .checkboxes label {
-    font-size: clamp(14px, 2vw, 24px);
+    font-size: clamp(14px, 4vw, 24px);
 }
 
 .register-box .register-form .checkboxes .check input {
@@ -131,7 +135,7 @@ button {
     padding: 10px;
     color: #F5FBE6;
     text-align: center;
-    font-size: clamp(18px, 2vw, 22px);
+    font-size: clamp(18px, 4vw, 22px);
 }
 
 button:hover {
@@ -140,11 +144,49 @@ button:hover {
 }
 
 .register-box .register-form .links {
-    margin-top: clamp(10px, 2vh, 20px);
-    gap:5px;
+    display: flex;
+    flex-direction: column;
+    margin-top: clamp(15px, 2vh, 20px);
+    gap:10px;
     font-size: clamp(16px, 2vw, 24px);
 }
 
 .register-box .register-form .links a {
     color:#FE7F2D;
+}
+
+/*Adicionando design responsivo para mobile*/
+@media (max-width: 768px) {
+
+    main {
+        flex-direction: column;
+    }
+
+    #hero-subtitle {
+        display: none;
+    }
+
+    .botao-voltar button {
+        position: absolute;
+        width: 15%;
+        height: 8%;
+        background-color: #233D4D;
+    
+}
+
+    .header {
+        width: 100%;
+        height: 25%;
+    }
+
+    .register-box {
+        width: 100%;
+        height: 100%;
+    }
+
+    .register-box .register-form .links {
+    margin-top: 10px;
+    gap:5px;
+}
+
 }
