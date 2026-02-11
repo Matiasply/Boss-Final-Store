@@ -62,7 +62,7 @@ h2 {
     font-size: clamp(14px, 2vw, 18px) ;
     color: #F5FBE6;
     width: 75%;
-    height: clamp(30px, 2vh, 50px);
+    height: clamp(30px, 5vh, 50px);
     border: none;
     border-radius: 36px;
     background-color: #233D4D;
@@ -90,7 +90,7 @@ button {
     border: none;
     border-radius: 36px;
     width: 75%;
-    height: clamp(30px, 2vh, 50px);
+    height: clamp(30px, 4vh, 50px);
     margin-top: 20px;
     padding: 10px;
     color: #F5FBE6;
