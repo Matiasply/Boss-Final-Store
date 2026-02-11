@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Geom:ital,wght@0,300..900;1,300..900&family=Italiana&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #F5FBE6;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: "Italiana", sans-serif;
+}
+
+.botao-voltar button {
+    position: fixed;
+    margin-top: 0;
+    left: 0;
+    width: 4%;
+    height: 5%;
+    color: #F5FBE6;
+    font-size: clamp(18px, 4vw, 30px);
+    background-color: #233D4D;
+    border-radius: 0;
+    border-bottom-right-radius: 36px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #12191D;
+}
+
+button:focus {
+    border: 2px solid #233D4D;
+}
+
+.header {
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    color: #FE7F2D;
+}
+
+#hero-title {
+    font-size: clamp(64px, 4vw, 88px);
+}
+
+.perfil-image {
+    display: flex;
+    justify-content: center;
+}
+
+.informacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    color: #FE7F2D;
+    font-size: clamp(20px, 4vw, 35px);
+}
+
+.avatar {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+}
