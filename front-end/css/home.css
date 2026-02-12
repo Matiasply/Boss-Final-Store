@@ -10,7 +10,7 @@ body {
     font-family: 'Italiana', sans-serif;
     background-color: #F5FBE6;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -92,6 +92,21 @@ header {
 
 .icons button:hover {
     color: #E76F51;
+}
+
+main {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+h2 {
+    font-size: clamp(24px, 3vw, 36px);
+    color: #233D4D;
 }
 
 .slider {
@@ -198,3 +213,56 @@ header {
     background-color: #FE7F2D;
 }
 
+.produtos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+    width: 100%;
+    height: 30%;
+    margin-bottom: 20px;
+}
+
+.produtos {
+    width: 50%;
+    height: 20%;
+}
+
+.produto {
+    background-color: #D9D9D9;
+    padding: 10px;
+    color: black;
+    font-size: clamp(14px, 1.2vw, 18px);
+}
+
+.produto button {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 36px;
+    background-color: #215E61;
+    color: #F5FBE6;
+    font-size: clamp(16px, 1.5vw, 20px);
+    cursor: pointer;
+}
+
+.produtos img {
+    width: 100%;
+    height: 20vh;
+    border-radius: 20px;
+}
+
+footer {
+    width: 100%;
+    height: 15vh;
+    background-color: #215E61;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+footer a {
+    color: #C16226;
+    font-size: clamp(16px, 1.5vw, 20px);
+}
