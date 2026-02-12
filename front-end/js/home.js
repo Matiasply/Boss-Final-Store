@@ -13,3 +13,10 @@ function nextImage(){
     }
     document.getElementById("radio" + count).checked = true;
 }
+
+// Lógica para os botões
+function perfil() {
+    window.location.href = "perfil.html";
+}
+const botao_perfil = document.getElementById("btn-perfil")
+botao_perfil.addEventListener("click", perfil)
