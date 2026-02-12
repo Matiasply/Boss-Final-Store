@@ -9,7 +9,7 @@
 body {
     font-family: 'Italiana', sans-serif;
     background-color: #F5FBE6;
-    width: 100vw;
+    min-width: 100vw;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -18,7 +18,7 @@ body {
 
 header {
     width: 100%;
-    height: 25%;
+    height: 25vh;
 }
 
 .hero-header {
@@ -265,4 +265,22 @@ footer {
 footer a {
     color: #C16226;
     font-size: clamp(16px, 1.5vw, 20px);
+}
+
+@media (max-width: 768px) {
+
+    .header {
+        height: 30vh;
+        width: 100%;
+    }
+
+    .icons {
+        top: 20px;
+        right: 10px;
+    }
+
+    .produtos {
+        grid-template-columns: repeat(2, 1fr);
+        width: 80%;
+    }
 }
