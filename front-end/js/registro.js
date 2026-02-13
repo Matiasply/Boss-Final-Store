@@ -10,7 +10,8 @@ function voltar() {
 const botao = document.getElementById("seta")
 botao.addEventListener("click", voltar)
 
-function registrar() {
+// Função responsável por enviar os dados do usuário para o back
+async function registrar() {
     const user = document.getElementById("usuario")
     const nome = user.value
 
@@ -26,7 +27,30 @@ function registrar() {
     const issousa = document.getElementById("sousa")
     const sousa = issousa.checked
 
-}
+    console.log(nome, code);
+
+    try {
+        const resposta = await fetch("http://localhost:3000/registrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json" 
+            },
+            body: JSON.stringify(
+                {
+                    "nome": nome,
+                    "senha": code,
+                    "isonepiece": faonepiece,
+                    "isflamengo": torcefla,
+                    "issousa": sousa
+                })
+            });
+            
+            const dados = await resposta.json(); 
+
+        } catch(erro) {
+            console.error(erro);
+        }
+    }
 
 const registro = document.getElementById("registrar")
 registro.addEventListener("click", registrar)
