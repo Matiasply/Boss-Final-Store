@@ -166,6 +166,9 @@ button:hover {
         display: none;
     }
 
+    .register-box h2 {
+        margin-top: 50px;
+    }
     .botao-voltar button {
         position: absolute;
         width: 15%;
