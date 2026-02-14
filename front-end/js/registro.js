@@ -27,8 +27,6 @@ async function registrar() {
     const issousa = document.getElementById("sousa")
     const sousa = issousa.checked
 
-    console.log(nome, code);
-
     try {
         const resposta = await fetch("http://localhost:3000/registrar", {
             method: "POST",
@@ -45,7 +43,15 @@ async function registrar() {
                 })
             });
             
-            const dados = await resposta.json(); 
+            const dados = await resposta.json();
+            console.log(dados)
+            
+            
+            /* Se o usuário for cadastrado, ele é
+            redirecionado para a página principal*/
+            if (dados.mensagem == "Usuário cadastrado") {
+                window.location.href = "home.html";
+            }
 
         } catch(erro) {
             console.error(erro);
