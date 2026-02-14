@@ -3,16 +3,16 @@ const app = express(); //Cria o server
 const fs = require("fs"); //Biblioteca para manipular arquivos do sistema
 const cors = require("cors");
 
-//Permite ler json
-app.use(express.json());
-app.use(cors());//Evitar erro de portas
+
+app.use(express.json());//Permite ler json
+app.use(cors());//Evitar erro de portas front(5500) back(3000)
 
 //Rota para teste
 app.get("/", function(req, res) {
     res.send("Deu certo");
 })
 
-//Rota de registro de usuário
+//Rota post de registro de usuário(CREATE)
 app.post ("/registrar", function(req, res) {
     const {nome, senha, isonepiece, isflamengo, issousa} = req.body;
 
@@ -33,8 +33,8 @@ app.post ("/registrar", function(req, res) {
 
 })
 
-// Abre o servidor na porta 3000
-//Deve ser sempre o último bloco de código
+/* Abre o servidor na porta 3000
+deve ser sempre o último bloco de código*/
 app.listen(3000, function() {
     console.log("Server on em:");
 })
