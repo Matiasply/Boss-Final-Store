@@ -33,6 +33,25 @@ app.post ("/registrar", function(req, res) {
 
 })
 
+//Rota GET para verificar se o usuário existe
+app.get("/verificar-nome/:nome", function(req, res) {
+    const nome = req.params.nome // Recebe o nome enviado pelo caminho
+
+    //Lê os usuários
+    const nomes_atuais = fs.readFileSync("usuarios.json", "utf-8")
+    //Transforma em objeto JS
+    const nomes = JSON.parse(nomes_atuais)
+
+    //Faz uma varredura comparando com todos os nomes
+    for(let name of nomes) {
+        if(nome === name.nome)
+            return res.json({existe: true});
+    }
+
+    //Se o for não achar, então o nome ainda não existe
+    return res.json({existe: false});
+})
+
 /* Abre o servidor na porta 3000
 deve ser sempre o último bloco de código*/
 app.listen(3000, function() {
