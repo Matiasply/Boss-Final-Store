@@ -2,6 +2,7 @@ const express = require("express");
 const app = express(); //Cria o server
 const fs = require("fs"); //Biblioteca para manipular arquivos do sistema
 const cors = require("cors");
+const path = require("path")
 
 
 app.use(express.json());//Permite ler json
@@ -37,8 +38,9 @@ app.post ("/registrar", function(req, res) {
 app.get("/verificar-nome/:nome", function(req, res) {
     const nome = req.params.nome // Recebe o nome enviado pelo caminho
 
+    const caminho = path.join(__dirname, "usuarios.json")
     //Lê os usuários
-    const nomes_atuais = fs.readFileSync("usuarios.json", "utf-8")
+    const nomes_atuais = fs.readFileSync(caminho, "utf-8")
     //Transforma em objeto JS
     const nomes = JSON.parse(nomes_atuais)
 
