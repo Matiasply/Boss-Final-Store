@@ -1,5 +1,6 @@
-function voltar() {
 
+function voltar() {
+    
     if(history.length > 1) {
         history.back();
     } else {
@@ -13,14 +14,19 @@ botao.addEventListener("click", voltar)
 // Função para validar nome de usuário em tempo real
 const inputNome = document.getElementById("usuario");
 const msg = document.getElementById("msg-user");
+// Pegar o botão de registro para interação
+const btn_registro = document.getElementById("registrar");
+btn_registro.disabled = true; // Botão de regsitro desabilitado enquanto não houver apelido válido
 
 //Assim que o usuário começar a digitar a função será chamada
 inputNome.addEventListener("input", async function() {
+
     const nome = inputNome.value;
 
     if (nome.length < 3) {
-        msg.textContent = "Digite pelo menos 3 caracteres";
+        msg.textContent = "Capricha no apelido!";
         msg.style.color = "black";
+        btn_registro.disabled = true;
         return;
     }
 
@@ -31,11 +37,16 @@ inputNome.addEventListener("input", async function() {
     if (data.existe) {
         msg.textContent = "❌ Nome já está em uso";
         msg.style.color = "red";
+    } else {
+        msg.textContent = "Arrasou no apelido!";
+        msg.style.color = "green";
+        btn_registro.disabled = false; // O botão habilita com apelido válido
     }
 });
 
 // Função responsável por enviar os dados do usuário para o back
-async function registrar() {
+async function registrar(event) {
+    event.preventDefault();
     const user = document.getElementById("usuario")
     const nome = user.value
 
@@ -70,15 +81,16 @@ async function registrar() {
             const dados = await resposta.json();
             console.log(dados.erro)
             
-            
-            /* Se o usuário for cadastrado, ele é
-            redirecionado para a página principal*/
-            if (dados.mensagem == "Usuário cadastrado") {
-                window.location.href = "home.html";
-            } 
+            if (!resposta.ok) {
+            alert(dados.erro || "Erro ao registrar");
+            return;
+            }
+
+            window.location.href = "home.html";
 
         } catch(erro) {
             console.error(erro);
+            alert("Erro de conexão com o servidor");
         }
     }
 
