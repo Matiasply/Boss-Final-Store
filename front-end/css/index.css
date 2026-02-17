@@ -112,7 +112,7 @@ button:hover {
 }
 
 .login-box .login-form .links {
-    margin-top: 25%;
+    margin-top: 50px;
     gap:5px;
     font-size: clamp(16px, 2vw, 24px);
 }
