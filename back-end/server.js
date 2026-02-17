@@ -1,12 +1,26 @@
 const express = require("express");
 const app = express(); //Cria o server
 const fs = require("fs"); //Biblioteca para manipular arquivos do sistema
-const cors = require("cors");
 const path = require("path")
+const session = require("express-session")
 
 
 app.use(express.json());//Permite ler json
-app.use(cors());//Evitar erro de portas front(5500) back(3000)
+//Evitar erro de portas front(5500) back(3000)
+
+
+//Abre sessões para o servidor saber quem é o usuário 
+app.use(session({
+    secret: "One-piece", //Nome genérico para dizer que é um segredo
+    resave: false, //Não salva sessão se nada mudou
+    saveUninitialized: false, //Não cria sessão vazia
+    cookie: {
+        secure: false,
+        sameSite: "lax"
+    }
+}))
+
+app.use(express.static(path.join(__dirname, "../front-end"))) //Remove a necessidade de CORS
 
 //Rota para teste
 app.get("/", function(req, res) {
@@ -17,7 +31,6 @@ app.get("/", function(req, res) {
 app.post ("/registrar", function(req, res) {
     const {nome, senha, isonepiece, isflamengo, issousa} = req.body;
 
-    
     // ler arquivo JSON atual
     const dadosAtuais = fs.readFileSync("usuarios.json", "utf-8");
     const usuarios = JSON.parse(dadosAtuais);
@@ -30,6 +43,10 @@ app.post ("/registrar", function(req, res) {
     
     // salvar de volta no arquivo
     fs.writeFileSync("usuarios.json", JSON.stringify(usuarios, null, 2));
+    req.session.usuario = nome;
+    req.session.isonpiece = isonepiece;
+    req.session.isflamengo = isflamengo;
+    req.session.issousa = issousa;
     res.json({mensagem: "Usuário cadastrado"});
 
 })
@@ -66,7 +83,7 @@ app.post("/login", function(req, res) {
     const users = JSON.parse(usuarios_atuais);
 
     const usuario = users.find(function (u) {
-        return u.nome === nome; //RRetorna o usuário
+        return u.nome === nome; //Retorna o usuário
     });
 
     // usuário não existe
@@ -80,8 +97,33 @@ app.post("/login", function(req, res) {
     }
 
     // sucesso
-    res.json({ mensagem: "Login realizado com sucesso" });
+    req.session.usuario = nome; //Inicia a sessão com o nome do usuário
+    req.session.isonpiece = usuario.isonepiece;
+    req.session.isflamengo = usuario.isflamengo;
+    req.session.issousa = usuario.issousa;
 
+    //Força o salvamento antes de responder
+    req.session.save(function () {
+    res.json({ mensagem: "Login realizado com sucesso" });
+    });
+
+})
+
+app.get("/perfil", function(req, res) {
+
+    console.log(req.session);
+    if (!req.session.usuario) {
+        return res.json( {erro: "Sem login"});
+    }
+
+    /*Retorna um json com todas as informações
+    do atual usuário da sessão */
+    return res.json({
+        nome: req.session.usuario,
+        onepiece: req.session.isonepiece,
+        flamenguista: req.session.isflamengo,
+        sousense: req.session.issousa
+    })
 })
 
 /* Abre o servidor na porta 3000
