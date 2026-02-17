@@ -54,6 +54,36 @@ app.get("/verificar-nome/:nome", function(req, res) {
     return res.json({existe: false});
 })
 
+//Rota POST para fazer o login do usuário
+app.post("/login", function(req, res) {
+
+    const {nome, senha} = req.body;
+
+    const caminho = path.join(__dirname, "usuarios.json");
+    //Lê os usuários
+    const usuarios_atuais = fs.readFileSync(caminho, "utf-8");
+
+    const users = JSON.parse(usuarios_atuais);
+
+    const usuario = users.find(function (u) {
+        return u.nome === nome; //RRetorna o usuário
+    });
+
+    // usuário não existe
+    if (!usuario) {
+        return res.status(404).json({ erro: "Usuário não encontrado" });
+    }
+
+    // senha errada
+    if (usuario.senha !== senha) {
+        return res.status(401).json({ erro: "Senha incorreta" });
+    }
+
+    // sucesso
+    res.json({ mensagem: "Login realizado com sucesso" });
+
+})
+
 /* Abre o servidor na porta 3000
 deve ser sempre o último bloco de código*/
 app.listen(3000, function() {
