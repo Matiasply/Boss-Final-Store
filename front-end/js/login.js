@@ -9,6 +9,7 @@ async function logar(event) {
 
     try {
         const resposta = await fetch("http://localhost:3000/login", {
+            credentials: "include",
             method: "POST",
             headers: {
                 "Content-Type": "application/json" 
