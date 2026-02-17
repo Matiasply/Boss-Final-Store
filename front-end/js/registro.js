@@ -18,7 +18,8 @@ const msg = document.getElementById("msg-user");
 const btn_registro = document.getElementById("registrar");
 btn_registro.disabled = true; // Botão de regsitro desabilitado enquanto não houver apelido válido
 
-//Assim que o usuário começar a digitar a função será chamada
+/*Assim que o usuário começar a digitar a função será chamada
+ ela válida em tempo real o nome de usuário digitado*/
 inputNome.addEventListener("input", async function() {
 
     const nome = inputNome.value;
@@ -39,7 +40,7 @@ inputNome.addEventListener("input", async function() {
         msg.style.color = "red";
     } else {
         msg.textContent = "Arrasou no apelido!";
-        msg.style.color = "green";
+        msg.style.color = "black";
         btn_registro.disabled = false; // O botão habilita com apelido válido
     }
 });
