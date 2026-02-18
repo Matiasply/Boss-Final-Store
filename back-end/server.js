@@ -43,10 +43,7 @@ app.post ("/registrar", function(req, res) {
     
     // salvar de volta no arquivo
     fs.writeFileSync("usuarios.json", JSON.stringify(usuarios, null, 2));
-    req.session.usuario = nome;
-    req.session.isonpiece = isonepiece;
-    req.session.isflamengo = isflamengo;
-    req.session.issousa = issousa;
+
     res.json({mensagem: "Usuário cadastrado"});
 
 })
