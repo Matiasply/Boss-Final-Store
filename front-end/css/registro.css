@@ -11,7 +11,7 @@ main {
     flex-direction: row-reverse;
     gap: 20px;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #F5FBE6;
     font-family: "Italiana", sans-serif;
 }
@@ -52,10 +52,11 @@ h2 {
 }
 
 .botao-voltar button {
-    position: fixed;
+    position: absolute;
     margin-top: 0;
     left: 0;
-    width: 4%;
+    width: 72px;
+    min-width: 50px;
     height: 5%;
     color: #F5FBE6;
     font-size: clamp(18px, 4vw, 30px);
@@ -146,7 +147,7 @@ button:hover {
 .register-box .register-form .links {
     display: flex;
     flex-direction: column;
-    margin-top: clamp(15px, 2vh, 20px);
+    margin-top: clamp(10px, 2vh, 15px);
     gap:10px;
     font-size: clamp(16px, 2vw, 24px);
 }
