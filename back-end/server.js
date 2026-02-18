@@ -95,7 +95,7 @@ app.post("/login", function(req, res) {
 
     // sucesso
     req.session.usuario = nome; //Inicia a sessão com o nome do usuário
-    req.session.isonpiece = usuario.isonepiece;
+    req.session.isonepiece = usuario.isonepiece;
     req.session.isflamengo = usuario.isflamengo;
     req.session.issousa = usuario.issousa;
 
