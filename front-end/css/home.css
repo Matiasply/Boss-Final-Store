@@ -33,7 +33,7 @@ header {
 }
 
 .hero-header h1 {
-    font-size: clamp(55px, 5vw, 86px);
+    font-size: clamp(45px, 5vw, 86px);
     color: #FE7F2D;
 }
 
@@ -45,7 +45,7 @@ header {
 }
 
 .search-box input {
-    padding: 10px;
+    padding: clamp(5px, 1.5vw, 10px);
     font-size: 16px;
     border: none;
     border-radius: 36px;
@@ -60,6 +60,7 @@ header {
     background-color: #FE7F2D;
     color: #F5FBE6;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 .search-box button:hover {
@@ -75,7 +76,7 @@ header {
 .icons {
     position: absolute;
     top: 40px;
-    right: 20px;
+    right: 40px;
     display: flex;
     flex-direction: column-reverse;
     gap: 15px;
