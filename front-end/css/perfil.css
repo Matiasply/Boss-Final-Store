@@ -9,7 +9,7 @@
 
 body {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #F5FBE6;
 }
 
@@ -26,7 +26,7 @@ main {
     position: fixed;
     margin-top: 0;
     left: 0;
-    width: 4%;
+    width: 7%;
     height: 5%;
     color: #F5FBE6;
     font-size: clamp(18px, 4vw, 30px);
@@ -74,4 +74,16 @@ button:focus {
     height: 300px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+@media (max-width:768px) {
+
+    .botao-voltar button {
+        width: 15%;
+    }
+
+    .avatar {
+        width: 250px;
+        height: 250px;
+    }
 }
