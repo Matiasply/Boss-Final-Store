@@ -1,4 +1,3 @@
-
 function voltar() {
     
     if(history.length > 1) {
@@ -65,6 +64,7 @@ async function registrar(event) {
 
     try {
         const resposta = await fetch("http://localhost:3000/registrar", {
+            credentials: "include",
             method: "POST",
             headers: {
                 "Content-Type": "application/json" 
@@ -87,7 +87,9 @@ async function registrar(event) {
             return;
             }
 
-            window.location.href = "home.html";
+            /*Se o cadastro der certo, o usuário
+            é redirecionado para a página de login*/
+            window.location.href = "../index.html";
 
         } catch(erro) {
             console.error(erro);
