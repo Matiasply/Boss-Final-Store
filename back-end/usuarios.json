@@ -285,5 +285,19 @@
     "isonepiece": true,
     "isflamengo": false,
     "issousa": true
+  },
+  {
+    "nome": "xaid",
+    "senha": "flamengo",
+    "isonepiece": false,
+    "isflamengo": true,
+    "issousa": false
+  },
+  {
+    "nome": "xaid",
+    "senha": "",
+    "isonepiece": false,
+    "isflamengo": false,
+    "issousa": false
   }
 ]
