@@ -141,6 +141,16 @@ app.get("/perfil", function(req, res) {
     })
 })
 
+// Rota de LOGOUT - destroi a sessão
+app.get("/logout", function(req, res) {
+    req.session.destroy(function(erro) {
+        if (erro) {
+            return res.status(500).json({erro: "Erro ao fazer logout"});
+        }
+        res.json({mensagem: "Logout realizado"});
+    });
+})
+
 /* Abre o servidor na porta 3000
 deve ser sempre o último bloco de código*/
 app.listen(3000, function() {

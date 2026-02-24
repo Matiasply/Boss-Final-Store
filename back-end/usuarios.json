@@ -1,3 +1,23 @@
 [
-  
+  {
+    "nome": "Xaid",
+    "senha": "Flamengo",
+    "isonepiece": false,
+    "isflamengo": true,
+    "issousa": false
+  },
+  {
+    "nome": "xaid",
+    "senha": "Flamengo",
+    "isonepiece": true,
+    "isflamengo": true,
+    "issousa": true
+  },
+  {
+    "nome": "bla bla bla",
+    "senha": "neymar",
+    "isonepiece": true,
+    "isflamengo": false,
+    "issousa": true
+  }
 ]
