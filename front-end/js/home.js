@@ -18,7 +18,8 @@ const botao_visitante = document.getElementById("btn-visitante");
 
 // Mostrar o botao de visitante apenas quando nao houver sessao
 document.addEventListener("DOMContentLoaded", async function () {
-    if (!botao_visitante) {
+    const btn = document.getElementById("btn-visitante");  // Pega novamente aqui
+    if (!btn) {
         return;
     }
 
@@ -32,9 +33,29 @@ document.addEventListener("DOMContentLoaded", async function () {
         });
 
         const dados = await resposta.json();
-        botao_visitante.hidden = dados.erro !== "Sem login";
+        console.log("Dados perfil:", dados);  // Debug
+        
+        // Se nao tiver login (Sem login), faz logout explícito para limpar sessão residual
+        if (dados.erro === "Sem login") {
+            console.log("Detectado visitante, fazendo logout...");  // Debug
+            
+            // Faz logout e espera completar
+            const logoutResp = await fetch("http://localhost:3000/logout", {
+                credentials: "include",
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            
+            console.log("Logout realizado, mostrando botão");  // Debug
+            btn.hidden = false;  // Mostra botão de visitante
+        } else {
+            console.log("Usuário logado, ocultando botão");  // Debug
+            btn.hidden = true;   // Esconde botão (user está logado)
+        }
     } catch (erro) {
-        console.error(erro);
+        console.error("Erro ao verificar sessão:", erro);
     }
 });
 

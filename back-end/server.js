@@ -17,7 +17,8 @@ app.use(session({
     saveUninitialized: false, //Não cria sessão vazia
     cookie: {
         secure: false,
-        sameSite: "lax"
+        sameSite: "lax",
+        maxAge: 1000 * 60 * 15 //15 minutos de sessão
     }
 }))
 

@@ -1,3 +1,26 @@
+// Função para entrar como visitante (destroi sessão anterior)
+async function entrarComoVisitante(event) {
+    event.preventDefault();
+    
+    try {
+        // Faz logout para destruir qualquer sessão anterior
+        await fetch("http://localhost:3000/logout", {
+            credentials: "include",
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        
+        // Depois redireciona para home como visitante
+        window.location.href = "./pages/home.html";
+    } catch(erro) {
+        console.error(erro);
+        // Mesmo com erro, tenta ir para home
+        window.location.href = "./pages/home.html";
+    }
+}
+
 // Função responsável por receber os dados de usuários e autenticar
 async function logar(event) {
     event.preventDefault();
