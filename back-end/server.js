@@ -31,9 +31,27 @@ app.get("/", function(req, res) {
 app.post ("/registrar", function(req, res) {
     const {nome, senha, isonepiece, isflamengo, issousa} = req.body;
 
+    // Validação de senha obrigatória
+    if (!senha || senha.trim() === "") {
+        return res.status(400).json({ erro: "Senha é obrigatória" });
+    }
+
+    if (senha.length < 4) {
+        return res.status(400).json({ erro: "Senha deve ter no mínimo 4 caracteres" });
+    }
+
     // ler arquivo JSON atual
     const dadosAtuais = fs.readFileSync("usuarios.json", "utf-8");
     const usuarios = JSON.parse(dadosAtuais);
+    
+    // VERIFICAR SE USUÁRIO JÁ EXISTE (previne duplicatas)
+    const usuarioExiste = usuarios.find(function(u) {
+        return u.nome === nome;
+    });
+
+    if (usuarioExiste) {
+        return res.status(409).json({ erro: "Usuário já existe" });
+    }
     
     // criar novo usuário
     const novoUsuario = { nome, senha, isonepiece, isflamengo, issousa };

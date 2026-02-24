@@ -37,6 +37,7 @@ inputNome.addEventListener("input", async function() {
     if (data.existe) {
         msg.textContent = "❌ Nome já está em uso";
         msg.style.color = "red";
+        btn_registro.disabled = true; // O botão fica desabilitado se o nome já existir
     } else {
         msg.textContent = "Arrasou no apelido!";
         msg.style.color = "black";
@@ -52,6 +53,34 @@ async function registrar(event) {
 
     const senha = document.getElementById("senha")
     const code = senha.value
+    const msg_senha = document.getElementById("msg-senha");
+
+    // Validação de senha
+    if (!code || code.trim() === "") {
+        msg_senha.textContent = "A senha é obrigatória!";
+        msg_senha.style.color = "red";
+        return;
+    }
+
+    if (code.length < 4) {
+        msg_senha.textContent = "Senha deve ter no mínimo 4 caracteres";
+        msg_senha.style.color = "red";
+        return;
+    }
+
+    // Limpa mensagem de erro
+    msg_senha.textContent = "";
+
+    // REVALIDAR se o nome ainda está disponível (previne race conditions)
+    const verificacao = await fetch(`http://localhost:3000/verificar-nome/${nome}`);
+    const dadosVerificacao = await verificacao.json();
+
+    if (dadosVerificacao.existe) {
+        msg.textContent = "❌ Este nome foi registrado recentemente. Escolha outro!";
+        msg.style.color = "red";
+        btn_registro.disabled = true;
+        return;
+    }
 
     const isonepiece = document.getElementById("onepiece")
     const faonepiece = isonepiece.checked

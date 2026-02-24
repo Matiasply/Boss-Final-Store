@@ -99,6 +99,12 @@ h2 {
     opacity: 0;
 }
 
+#msg-user, #msg-senha {
+    font-size: clamp(14px, 2vw, 18px);
+    display: block;
+    margin-top: 5px;
+}
+
 .register-box .register-form .checkboxes label {
     font-size: clamp(14px, 4vw, 24px);
 }
