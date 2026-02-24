@@ -3,6 +3,7 @@ const app = express(); //Cria o server
 const fs = require("fs"); //Biblioteca para manipular arquivos do sistema
 const path = require("path")
 const session = require("express-session")
+const bcrypt = require("bcrypt") // Criptografia das senhas
 
 
 app.use(express.json());//Permite ler json
@@ -28,7 +29,7 @@ app.get("/", function(req, res) {
 })
 
 //Rota post de registro de usuário(CREATE)
-app.post ("/registrar", function(req, res) {
+app.post ("/registrar", async function(req, res) {
     const {nome, senha, isonepiece, isflamengo, issousa} = req.body;
 
     // Validação de senha obrigatória
@@ -39,6 +40,8 @@ app.post ("/registrar", function(req, res) {
     if (senha.length < 4) {
         return res.status(400).json({ erro: "Senha deve ter no mínimo 4 caracteres" });
     }
+
+    const senhaHash = await bcrypt.hash(senha, 10);
 
     // ler arquivo JSON atual
     const dadosAtuais = fs.readFileSync("usuarios.json", "utf-8");
@@ -54,7 +57,7 @@ app.post ("/registrar", function(req, res) {
     }
     
     // criar novo usuário
-    const novoUsuario = { nome, senha, isonepiece, isflamengo, issousa };
+    const novoUsuario = { nome, senhaHash, isonepiece, isflamengo, issousa };
     
     // adicionar na lista
     usuarios.push(novoUsuario);
@@ -87,7 +90,7 @@ app.get("/verificar-nome/:nome", function(req, res) {
 })
 
 //Rota POST para fazer o login do usuário
-app.post("/login", function(req, res) {
+app.post("/login", async function(req, res) {
 
     const {nome, senha} = req.body;
 
@@ -106,8 +109,10 @@ app.post("/login", function(req, res) {
         return res.status(404).json({ erro: "Usuário não encontrado" });
     }
 
+    const senhaCorreta = await bcrypt.compare(senha, usuario.senhaHash);
+
     // senha errada
-    if (usuario.senha !== senha) {
+    if (!senhaCorreta) {
         return res.status(401).json({ erro: "Senha incorreta" });
     }
 
