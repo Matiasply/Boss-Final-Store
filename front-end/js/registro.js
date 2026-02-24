@@ -21,6 +21,7 @@ btn_registro.disabled = true; // Botão de regsitro desabilitado enquanto não h
  ela válida em tempo real o nome de usuário digitado*/
 inputNome.addEventListener("input", async function() {
 
+    btn_registro.disabled = true;
     const nome = inputNome.value;
 
     if (nome.length < 3) {
