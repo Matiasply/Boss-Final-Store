@@ -24,7 +24,8 @@ app.use(session({
     saveUninitialized: false, //Não cria sessão vazia
     cookie: {
         secure: false,
-        sameSite: "lax"
+        sameSite: "lax",
+        maxAge: 1000 * 60 * 15 //15 minutos de sessão
     }
 }))
 
@@ -151,6 +152,16 @@ app.get("/perfil", function(req, res) {
         flamenguista: req.session.isflamengo,
         sousense: req.session.issousa
     })
+})
+
+// Rota de LOGOUT - destroi a sessão
+app.get("/logout", function(req, res) {
+    req.session.destroy(function(erro) {
+        if (erro) {
+            return res.status(500).json({erro: "Erro ao fazer logout"});
+        }
+        res.json({mensagem: "Logout realizado"});
+    });
 })
 
 /* Abre o servidor na porta 3000
