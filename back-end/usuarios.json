@@ -1,3 +1,9 @@
 [
-  
+  {
+    "nome": "xaid",
+    "senhaHash": "$2b$10$PrB2wyhBp9jBgjKbq3xqhOgtUEfRPlCY.g8EO4wXg49VrixfAs/ee",
+    "isonepiece": false,
+    "isflamengo": false,
+    "issousa": false
+  }
 ]

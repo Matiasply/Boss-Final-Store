@@ -283,6 +283,7 @@ footer {
     gap: 20px;
 }
 
+
 footer a {
     color: #C16226;
     font-size: clamp(16px, 1.5vw, 20px);
