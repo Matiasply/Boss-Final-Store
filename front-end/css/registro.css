@@ -132,7 +132,21 @@ h2 {
     margin-bottom: 15px;
 }
 
-button {
+.botao-voltar button {
+    position: fixed;
+    margin-top: 0;
+    left: 0;
+    width: 7%;
+    height: 5%;
+    color: #F5FBE6;
+    font-size: clamp(18px, 4vw, 30px);
+    background-color: #E27B34;
+    border-radius: 0;
+    border-bottom-right-radius: 36px;
+    border: none;
+}
+
+#registrar {    
     background-color: #233D4D;
     border: none;
     border-radius: 36px;
@@ -141,8 +155,9 @@ button {
     margin-top: 20px;
     padding: 10px;
     color: #F5FBE6;
-    text-align: center;
     font-size: clamp(18px, 4vw, 22px);
+    text-justify: center;
+
 }
 
 button:hover {
