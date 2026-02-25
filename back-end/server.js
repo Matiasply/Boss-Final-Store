@@ -3,22 +3,13 @@ const fs = require("fs"); //Biblioteca para manipular arquivos do sistema
 const path = require("path")
 const session = require("express-session")
 const bcrypt = require("bcrypt") // Criptografia das senhas
-const redis = require("redis"); 
-const { RedisStore } = require("connect-redis").default;
 
 const app = express(); //Cria o server
 app.use(express.json());//Permite ler json
 //Evitar erro de portas front(5500) back(3000)
 
-/* Redis é usado para salvar a sessão, sem ele, caso o servidor
-reinicie, a sessão do usuário é perdida, bem como seu carrinho
-de compras. A sessão não é mais salva no node, mas no Redis. */
-const cliente = redis.createClient()
-cliente.connect()
-
 //Abre sessões para o servidor saber quem é o usuário 
 app.use(session({
-    store: new RedisStore({client: cliente}),
     secret: "One-piece", //Nome genérico para dizer que é um segredo
     resave: false, //Não salva sessão se nada mudou
     saveUninitialized: false, //Não cria sessão vazia
