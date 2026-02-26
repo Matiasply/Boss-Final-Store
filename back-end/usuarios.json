@@ -1,16 +1,3 @@
 [
-  {
-    "nome": "xaid",
-    "senhaHash": "$2b$10$tVUOrCc9YcVNcWKDvWOBreixkHAV3.m6Ai/Et/kbxU.ogmWsBSO8i",
-    "isonepiece": false,
-    "isflamengo": true,
-    "issousa": false
-  },
-  {
-    "nome": "bla bla bla",
-    "senhaHash": "$2b$10$yXZlOLy0C4zqrXxwaMwHCe6UGmOf9Wsd2qlGnrywqYsyFg5tvdaXG",
-    "isonepiece": false,
-    "isflamengo": false,
-    "issousa": false
-  }
+  
 ]
