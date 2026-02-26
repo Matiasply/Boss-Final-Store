@@ -18,11 +18,16 @@ const botao_visitante = document.getElementById("btn-visitante");
 
 // Mostrar o botao de sair apenas quando houver sessão visitante
 document.addEventListener("DOMContentLoaded", async function () {
-    const btnVisitante = document.getElementById("btn-visitante");
+    const logoutContainer = document.getElementById("logout-container");
     
-    if (!btnVisitante) {
+    if (!logoutContainer) {
+        console.log("Container de logout não encontrado");
         return;
     }
+
+    // Garante que começa escondido
+    logoutContainer.style.display = 'none';
+    console.log("Container inicialmente escondido");
 
     try {
         const resposta = await fetch("http://localhost:3000/perfil", {
@@ -35,6 +40,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         const dados = await resposta.json();
         console.log("Dados perfil:", dados);  // Debug
+        console.log("Tem erro?", dados.erro);  // Debug
         
         // Se nao tiver login (Sem login), faz logout explícito para limpar sessão residual
         if (dados.erro === "Sem login") {
@@ -50,13 +56,14 @@ document.addEventListener("DOMContentLoaded", async function () {
             });
             
             console.log("Logout realizado, mostrando botão de visitante");  // Debug
-            btnVisitante.hidden = false;  // Mostra botão de visitante
+            logoutContainer.style.display = 'block';  // Mostra container
         } else {
-            console.log("Usuário logado, escondendo botão de visitante");  // Debug
-            btnVisitante.hidden = true;   // Esconde botão de visitante
+            console.log("Usuário logado, mantendo botão escondido");  // Debug
+            logoutContainer.style.display = 'none';   // Garante que está escondido
         }
     } catch (erro) {
         console.error("Erro ao verificar sessão:", erro);
+        logoutContainer.style.display = 'none';  // Esconde em caso de erro
     }
 });
 

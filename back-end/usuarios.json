@@ -5,5 +5,12 @@
     "isonepiece": false,
     "isflamengo": true,
     "issousa": false
+  },
+  {
+    "nome": "bla bla bla",
+    "senhaHash": "$2b$10$yXZlOLy0C4zqrXxwaMwHCe6UGmOf9Wsd2qlGnrywqYsyFg5tvdaXG",
+    "isonepiece": false,
+    "isflamengo": false,
+    "issousa": false
   }
 ]
