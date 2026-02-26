@@ -16,12 +16,11 @@ function nextImage(){
 
 const botao_visitante = document.getElementById("btn-visitante");
 
-// Mostrar o botao de sair apenas quando houver sessao ou visitante
+// Mostrar o botao de sair apenas quando houver sessão visitante
 document.addEventListener("DOMContentLoaded", async function () {
     const btnVisitante = document.getElementById("btn-visitante");
-    const btnLogado = document.getElementById("btn-logado");
     
-    if (!btnVisitante || !btnLogado) {
+    if (!btnVisitante) {
         return;
     }
 
@@ -52,11 +51,9 @@ document.addEventListener("DOMContentLoaded", async function () {
             
             console.log("Logout realizado, mostrando botão de visitante");  // Debug
             btnVisitante.hidden = false;  // Mostra botão de visitante
-            btnLogado.hidden = true;      // Esconde botão de logado
         } else {
-            console.log("Usuário logado, mostrando botão de sair");  // Debug
+            console.log("Usuário logado, escondendo botão de visitante");  // Debug
             btnVisitante.hidden = true;   // Esconde botão de visitante
-            btnLogado.hidden = false;     // Mostra botão de sair logado
         }
     } catch (erro) {
         console.error("Erro ao verificar sessão:", erro);
