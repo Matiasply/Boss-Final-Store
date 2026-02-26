@@ -110,7 +110,10 @@ h2 {
 }
 
 .logout-btn-container {
-    margin-bottom: 20px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
 }
 
 .logout-btn-container button {
