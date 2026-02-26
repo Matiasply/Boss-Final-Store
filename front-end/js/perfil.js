@@ -1,3 +1,22 @@
+// Função para fazer logout
+async function logout() {
+    try {
+        await fetch("http://localhost:3000/logout", {
+            credentials: "include",
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        
+        // Redireciona para login
+        window.location.href = "../index.html";
+    } catch(erro) {
+        console.error(erro);
+        alert("Erro ao fazer logout");
+    }
+}
+
 function voltar() {
     
     if(history.length > 1) {

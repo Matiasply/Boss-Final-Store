@@ -16,10 +16,11 @@ function nextImage(){
 
 const botao_visitante = document.getElementById("btn-visitante");
 
-// Mostrar o botao de visitante apenas quando nao houver sessao
+// Mostrar o botao de sair apenas quando houver sessão visitante
 document.addEventListener("DOMContentLoaded", async function () {
-    const btn = document.getElementById("btn-visitante");  // Pega novamente aqui
-    if (!btn) {
+    const btnVisitante = document.getElementById("btn-visitante");
+    
+    if (!btnVisitante) {
         return;
     }
 
@@ -37,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         
         // Se nao tiver login (Sem login), faz logout explícito para limpar sessão residual
         if (dados.erro === "Sem login") {
-            console.log("Detectado visitante, fazendo logout...");  // Debug
+            console.log("Detectado visitante, mostrando botão de visitante");  // Debug
             
             // Faz logout e espera completar
             const logoutResp = await fetch("http://localhost:3000/logout", {
@@ -48,11 +49,11 @@ document.addEventListener("DOMContentLoaded", async function () {
                 }
             });
             
-            console.log("Logout realizado, mostrando botão");  // Debug
-            btn.hidden = false;  // Mostra botão de visitante
+            console.log("Logout realizado, mostrando botão de visitante");  // Debug
+            btnVisitante.hidden = false;  // Mostra botão de visitante
         } else {
-            console.log("Usuário logado, ocultando botão");  // Debug
-            btn.hidden = true;   // Esconde botão (user está logado)
+            console.log("Usuário logado, escondendo botão de visitante");  // Debug
+            btnVisitante.hidden = true;   // Esconde botão de visitante
         }
     } catch (erro) {
         console.error("Erro ao verificar sessão:", erro);
