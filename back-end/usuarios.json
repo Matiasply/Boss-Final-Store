@@ -1,3 +1,9 @@
 [
-  
+  {
+    "nome": "renda_valiosa",
+    "senhaHash": "$2b$10$t.wa/Ssrm.NEJ72vmY5Lneib76i50aMyiDy/fX0oEKaJJk2eoIvmW",
+    "isonepiece": true,
+    "isflamengo": false,
+    "issousa": false
+  }
 ]
