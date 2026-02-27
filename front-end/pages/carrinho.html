@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Carrinho de compras do site de vendas">
+    <link rel="stylesheet" href="../css/carrinho.css">
     <title>Carrinho de compras</title>
 </head>
 <body>
@@ -11,7 +12,9 @@
         <button id="seta">←</button>
     </div>
     <header>
-        <h1>Meu Carrinho</h1>
+        <div class="hero-title">
+            <h1>Meu Carrinho</h1>
+        </div>
     </header>
     <main>
         <div class="carrinho">
@@ -19,12 +22,21 @@
         </div>
         <div class="resumo_compra">
             <h3>Resumo da compra</h3>
-            <p>Total: </p>
-            <span id="total"></span>
-            <p>Descontos: </p>
-            <span id="descontos"></span>
-            <p>Valor final: </p></p>
-            <span id="valor_final"></span>
+            <div class="resumo">
+                <div class="preco">
+                    <p>Total: </p>
+                    <span id="total" class="quantia"></span>
+                </div>
+                <div class="preco">
+                    <p>Descontos: </p>
+                    <span id="descontos" class="quantia"></span>
+                </div>
+                <div class="preco">
+                    <p>Valor final: </p>
+                    <span id="valor_final" class="quantia"></span>
+                </div>
+            </div>
+            <button id="comprar">Comprar</button>
         </div>
     </main>
 </body>
