@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Geom:ital,wght@0,300..900;1,300..900&family=Italiana&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Italiana", sans-serif;
+    background-color: #F5FBE6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    color: #FE7F2D;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-title {
+    padding: 20px;
+    margin-top: 30px;
+    font-size: clamp(20px, 4vw, 36px);
+}
+
+.botao-voltar button {
+    position: relative;
+    margin-top: 0;
+    left: 0;
+    width: 72px;
+    min-width: 50px;
+    height: 5%;
+    color: #F5FBE6;
+    font-size: clamp(18px, 4vw, 30px);
+    background-color: #FE7F2D;
+    border-radius: 0;
+    border-bottom-right-radius: 36px;
+    border: none;
+}
+
+.botao-voltar button:hover {
+    background-color: #12191D;
+    cursor: pointer;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background-color: #215E61;
+}
+
+.carrinho {
+    display: flex;
+    flex-direction: column;
+    color: #FFFFFF;
+    gap: 20px;
+}
+
+.resumo_compra {
+    background-color: #233D4D;
+    border-top-left-radius: 36px;
+    border-top-right-radius: 36px;
+    color: #FFFFFF;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.resumo_compra h3 {
+    text-align: center;
+    font-size: clamp(30px, 4vw, 40px);
+}
+
+.resumo {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.preco {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    font-size: clamp(20px, 4vw, 30px);
+}
+
+#comprar {
+    background-color: #233D4D;
+    border: none;
+    border-radius: 36px;
+    height: clamp(50px, 2vh, 70px);
+    margin-top: 20px;
+    padding: 15px 40px;
+    color: #F5FBE6;
+    font-size: clamp(26px, 4vw, 30px);
+    text-justify: center;
+    margin-top: auto;
+    align-self: center;
+}
+
+#comprar:hover {
+    cursor: pointer;
+    background-color: #FE7F2D;
+}
+
