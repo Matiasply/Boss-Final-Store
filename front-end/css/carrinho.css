@@ -30,12 +30,12 @@ header {
     position: relative;
     margin-top: 0;
     left: 0;
-    width: 72px;
+    width: 100px;
     min-width: 50px;
-    height: 5%;
+    height: clamp(25px, 4vw, 50px);
     color: #F5FBE6;
     font-size: clamp(18px, 4vw, 30px);
-    background-color: #FE7F2D;
+    background-color: #215E61;
     border-radius: 0;
     border-bottom-right-radius: 36px;
     border: none;
@@ -59,6 +59,55 @@ main {
     flex-direction: column;
     color: #FFFFFF;
     gap: 20px;
+}
+
+.item {
+    display: flex;
+    gap: 15px;
+    background-color: #233D4D;
+    color: #fff;
+    font-size: clamp(20px, 4vw, 30px);
+    position: relative;
+}
+
+.item .info {
+    display: flex;
+    flex-direction: column;
+}
+
+.item button {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.item .btn-menos {
+    position: absolute;
+    right: 15px;
+    top: 30px;
+}
+
+.item .btn-mais {
+    position: absolute;
+    right: 80px;
+    top: 30px;
+}
+
+.quantidade {
+    position: absolute;
+    right: 55px;
+    top: 30px;
+}
+
+.item img {
+    width: 10%;
+    max-height: 100px;
+    margin: 5px 5px 5px;
+}
+
+.empty {
+    text-align: center;
+    font-size: clamp(20px, 4vw, 50px);
 }
 
 .resumo_compra {
@@ -99,7 +148,7 @@ main {
     border-radius: 36px;
     height: clamp(50px, 2vh, 70px);
     margin-top: 20px;
-    padding: 15px 40px;
+    padding: 15px 90px;
     color: #F5FBE6;
     font-size: clamp(26px, 4vw, 30px);
     text-justify: center;
