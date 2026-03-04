@@ -20,6 +20,7 @@ async function registrar(req, res) {
     const caminho = path.join(__dirname, "..", "usuarios.json")
 
     // ler arquivo JSON atual
+
     const dadosAtuais = fs.readFileSync(caminho, "utf-8");
 
     const usuarios = JSON.parse(dadosAtuais);
@@ -72,6 +73,7 @@ async function login(req, res) {
     const {nome, senha} = req.body;
 
     const caminho = path.join(__dirname, "..", "usuarios.json");
+
     //Lê os usuários
     const usuarios_atuais = fs.readFileSync(caminho, "utf-8");
 
