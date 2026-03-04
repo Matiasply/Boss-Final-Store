@@ -1,13 +1,15 @@
 const express = require("express");
+const controllers = require("../controllers/userControllers") // Importa os controladores para cada rota
+const verificarAutenticacao = require("../middlewares/authMiddleware")
 const router = express.Router();
-const controllers = require("../controllers/usercontrollers"); // Importa as funções de controllers para aplicar nas rotas
-const middleware = require("../middlewares/authMiddleware");
 
 router.post("/registrar", controllers.registrar);
 router.post("/login", controllers.login);
 
 router.get("/verificar-nome/:nome", controllers.verificar_nome);
-router.get("/perfil", middleware.verificarAutenticacao, controllers.autenticar);
-router.get("/logout", middleware.verificarAutenticacao, controllers.logout);
 
-module.export = router; // Exporta todas as rotas para serem usas em server.js
+// Forma correta de utilizar função declarada no authmiddleware.js 
+router.get("/perfil", verificarAutenticacao, controllers.autenticar);
+router.get("/logout", verificarAutenticacao, controllers.logout);
+
+module.exports = router; // Exporta todas as rotas para serem usas em server.js
