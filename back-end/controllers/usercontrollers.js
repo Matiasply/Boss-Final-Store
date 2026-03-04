@@ -17,8 +17,10 @@ async function registrar(req, res) {
 
     const senhaHash = await bcrypt.hash(senha, 10);
 
+    const caminho = path.join(__dirname, "..", "usuarios.json")
+
     // ler arquivo JSON atual
-    const dadosAtuais = fs.readFileSync("../usuarios.json", "utf-8");
+    const dadosAtuais = fs.readFileSync(caminho, "utf-8");
 
     const usuarios = JSON.parse(dadosAtuais);
     
@@ -38,7 +40,7 @@ async function registrar(req, res) {
     usuarios.push(novoUsuario);
     
     // salvar de volta no arquivo
-    fs.writeFileSync("../usuarios.json", JSON.stringify(usuarios, null, 2));
+    fs.writeFileSync(caminho, JSON.stringify(usuarios, null, 2));
 
     res.json({mensagem: "Usuário cadastrado"});
 
