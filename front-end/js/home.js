@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     console.log("Container inicialmente escondido");
 
     try {
-        const resposta = await fetch("http://localhost:3000/perfil", {
+        const resposta = await fetch("http://localhost:3000/api/perfil", {
             credentials: "include",
             method: "GET",
             headers: {
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             console.log("Detectado visitante, mostrando botão de visitante");  // Debug
             
             // Faz logout e espera completar
-            const logoutResp = await fetch("http://localhost:3000/logout", {
+            const logoutResp = await fetch("http://localhost:3000/api/logout", {
                 credentials: "include",
                 method: "GET",
                 headers: {
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 // Função para fazer logout
 async function logout() {
     try {
-        await fetch("http://localhost:3000/logout", {
+        await fetch("http://localhost:3000/api/logout", {
             credentials: "include",
             method: "GET",
             headers: {
@@ -90,7 +90,7 @@ async function logout() {
 async function perfil() {
 
     try {
-        const resposta = await fetch("http://localhost:3000/perfil", {
+        const resposta = await fetch("http://localhost:3000/api/perfil", {
             credentials: "include",
             method: "GET",
             headers: {

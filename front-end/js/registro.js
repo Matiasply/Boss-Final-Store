@@ -73,7 +73,7 @@ async function registrar(event) {
     msg_senha.textContent = "";
 
     // REVALIDAR se o nome ainda está disponível (previne race conditions)
-    const verificacao = await fetch(`http://localhost:3000/api/verificar-nome/${nome}`);
+    const verificacao = await fetch(`http://localhost:3000              /api/verificar-nome/${nome}`);
     const dadosVerificacao = await verificacao.json();
 
     if (dadosVerificacao.existe) {

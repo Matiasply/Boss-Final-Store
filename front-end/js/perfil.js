@@ -1,7 +1,7 @@
 // Função para fazer logout
 async function logout() {
     try {
-        await fetch("http://localhost:3000/logout", {
+        await fetch("http://localhost:3000/api/logout", {
             credentials: "include",
             method: "GET",
             headers: {
@@ -32,7 +32,7 @@ botao.addEventListener("click", voltar)
 document.addEventListener("DOMContentLoaded", async function () {
     
     try {
-        const resposta = await fetch("http://localhost:3000/perfil", {
+        const resposta = await fetch("http://localhost:3000/api/perfil", {
             credentials: "include",
             method: "GET",
             headers: {
