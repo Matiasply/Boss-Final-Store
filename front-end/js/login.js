@@ -4,7 +4,7 @@ async function entrarComoVisitante(event) {
     
     try {
         // Faz logout para destruir qualquer sessão anterior
-        await fetch("http://localhost:3000/logout", {
+        await fetch("http://localhost:3000/api/logout", {
             credentials: "include",
             method: "GET",
             headers: {
@@ -31,7 +31,7 @@ async function logar(event) {
     const code = senha.value
 
     try {
-        const resposta = await fetch("http://localhost:3000/login", {
+        const resposta = await fetch("http://localhost:3000/api/login", {
             credentials: "include",
             method: "POST",
             headers: {

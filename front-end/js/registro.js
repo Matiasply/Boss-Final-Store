@@ -32,7 +32,7 @@ inputNome.addEventListener("input", async function() {
     }
 
     // Faz requisição em tempo real para verificar o nome
-    const res = await fetch(`http://localhost:3000/verificar-nome/${nome}`);
+    const res = await fetch(`http://localhost:3000/api/verificar-nome/${nome}`);
     const data = await res.json();
 
     if (data.existe) {
@@ -73,7 +73,7 @@ async function registrar(event) {
     msg_senha.textContent = "";
 
     // REVALIDAR se o nome ainda está disponível (previne race conditions)
-    const verificacao = await fetch(`http://localhost:3000/verificar-nome/${nome}`);
+    const verificacao = await fetch(`http://localhost:3000              /api/verificar-nome/${nome}`);
     const dadosVerificacao = await verificacao.json();
 
     if (dadosVerificacao.existe) {
@@ -93,7 +93,7 @@ async function registrar(event) {
     const sousa = issousa.checked
 
     try {
-        const resposta = await fetch("http://localhost:3000/registrar", {
+        const resposta = await fetch("http://localhost:3000/api/registrar", {
             credentials: "include",
             method: "POST",
             headers: {
