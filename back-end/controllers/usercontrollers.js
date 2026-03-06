@@ -1,6 +1,7 @@
 const fs = require("fs"); //Biblioteca para manipular arquivos do sistema
 const path = require("path")
 const bcrypt = require("bcrypt") // Criptografia das senhas
+const userModel = require("../models/userModel");
 
 // Função resposável pelo registro do usuário
 async function registrar(req, res) {
@@ -15,36 +16,29 @@ async function registrar(req, res) {
         return res.status(400).json({ erro: "Senha deve ter no mínimo 4 caracteres" });
     }
 
+    try {
+        const usuarioExistente = await userModel.buscarPorNome(nome);
+
+        if (usuarioExistente) {
+            return res.status(409).json({ erro: "Usuário já existe" });
+        }
+    
     const senhaHash = await bcrypt.hash(senha, 10);
 
-    const caminho = path.join(__dirname, "..", "usuarios.json")
-
-    // ler arquivo JSON atual
-
-    const dadosAtuais = fs.readFileSync(caminho, "utf-8");
-
-    const usuarios = JSON.parse(dadosAtuais);
-    
-    // VERIFICAR SE USUÁRIO JÁ EXISTE (previne duplicatas)
-    const usuarioExiste = usuarios.find(function(u) {
-        return u.nome === nome;
-    });
-
-    if (usuarioExiste) {
-        return res.status(409).json({ erro: "Usuário já existe" });
-    }
-    
-    // criar novo usuário
-    const novoUsuario = { nome, senhaHash, isonepiece, isflamengo, issousa };
-    
-    // adicionar na lista
-    usuarios.push(novoUsuario);
-    
-    // salvar de volta no arquivo
-    fs.writeFileSync(caminho, JSON.stringify(usuarios, null, 2));
+    await userModel.criarUsuario(
+        nome,
+        senhaHash,
+        isonepiece,
+        isflamengo,
+        issousa
+    )
 
     res.json({mensagem: "Usuário cadastrado"});
 
+    } catch (erro) {
+        console.error(erro);
+        res.status(500).json({ erro: "Erro ao registrar usuário" });
+    }
 }
 
 // Função para verificar o nome no input do registro
@@ -72,23 +66,14 @@ async function login(req, res) {
 
     const {nome, senha} = req.body;
 
-    const caminho = path.join(__dirname, "..", "usuarios.json");
-
-    //Lê os usuários
-    const usuarios_atuais = fs.readFileSync(caminho, "utf-8");
-
-    const users = JSON.parse(usuarios_atuais);
-
-    const usuario = users.find(function (u) {
-        return u.nome === nome; //Retorna o usuário
-    });
+    const usuario = await userModel.buscarPorNome(nome);
 
     // usuário não existe
     if (!usuario) {
         return res.status(404).json({ erro: "Usuário não encontrado" });
     }
 
-    const senhaCorreta = await bcrypt.compare(senha, usuario.senhaHash);
+    const senhaCorreta = await bcrypt.compare(senha, usuario.senha);
 
     // senha errada
     if (!senhaCorreta) {
@@ -97,9 +82,9 @@ async function login(req, res) {
 
     // sucesso
     req.session.usuario = nome; //Inicia a sessão com o nome do usuário
-    req.session.isonepiece = usuario.isonepiece;
-    req.session.isflamengo = usuario.isflamengo;
-    req.session.issousa = usuario.issousa;
+    req.session.isonepiece = usuario.is_onepiece;
+    req.session.isflamengo = usuario.is_flamengo;
+    req.session.issousa = usuario.is_sousa;
 
     //Força o salvamento antes de responder
     req.session.save(function () {
