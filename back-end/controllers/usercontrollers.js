@@ -23,17 +23,17 @@ async function registrar(req, res) {
             return res.status(409).json({ erro: "Usuário já existe" });
         }
     
-    const senhaHash = await bcrypt.hash(senha, 10);
+        const senhaHash = await bcrypt.hash(senha, 10);
 
-    await userModel.criarUsuario(
-        nome,
-        senhaHash,
-        isonepiece,
-        isflamengo,
-        issousa
-    )
+        await userModel.criarUsuario(
+            nome,
+            senhaHash,
+            isonepiece,
+            isflamengo,
+            issousa
+        );
 
-    res.json({mensagem: "Usuário cadastrado"});
+        res.json({mensagem: "Usuário cadastrado"});
 
     } catch (erro) {
         console.error(erro);
@@ -44,7 +44,6 @@ async function registrar(req, res) {
 // Função para verificar o nome no input do registro
 function verificar_nome(req, res) {
     const nome = req.params.nome // Recebe o nome enviado pelo caminho
-
     const caminho = path.join(__dirname, "..", "usuarios.json")
     //Lê os usuários
     const nomes_atuais = fs.readFileSync(caminho, "utf-8")
@@ -65,7 +64,6 @@ function verificar_nome(req, res) {
 async function login(req, res) {
 
     const {nome, senha} = req.body;
-
     const usuario = await userModel.buscarPorNome(nome);
 
     // usuário não existe
