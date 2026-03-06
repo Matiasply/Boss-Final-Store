@@ -10,12 +10,12 @@ async function buscarPorNome(usuario) {
 }
 
 // Criar novo usuário
-async function criarUsuario(nome, senhaHash, is_onepiece, is_flamengo, is_sousa) {
+async function criarUsuario(usuario, senhaHash, is_onepiece, is_flamengo, is_sousa) {
     const resultado = await pool.query(
-        `INSERT INTO usuarios (nome, senha, is_onepiece, is_flamengo, is_sousa)
+        `INSERT INTO usuarios (usuario, senha, is_onepiece, is_flamengo, is_sousa)
          VALUES ($1, $2, $3, $4, $5)
          RETURNING *`,
-        [nome, senhaHash, is_onepiece, is_flamengo, is_sousa]
+        [usuario, senhaHash, is_onepiece, is_flamengo, is_sousa]
     );
 
     return resultado.rows[0];
