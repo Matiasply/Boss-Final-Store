@@ -76,6 +76,13 @@ button:focus {
     object-fit: cover;
 }
 
+a {
+    color: #FE7F2D;
+    text-decoration: none;
+    font-size: clamp(18px, 4vw, 30px);
+    text-decoration: underline;
+}
+
 .logout-btn-container {
     display: flex;
     justify-content: center;
