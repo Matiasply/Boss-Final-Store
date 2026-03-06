@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página de gerência do administrador">
+    <title>Boss Final Store - Admin</title>
+</head>
+<body>
+    <main>
+        <div class="botao-voltar">
+            <button id="seta">←</button>
+        </div>
+        <div class="header">
+            <h1 id="hero-title">Painel do Administrador</h1>
+        </div>
+        <div class="actions_adm">
+            <!--Cadastro de produtos-->
+            <details>
+                <summary>Cadastrar produto</summary>
+                <!--Form para adicionar produtos-->
+                <form>
+                    <label for="nome">Nome: </label>
+                    <br>
+                    <input type="text" id="nome" name="nome">
+                    <br>
+                    <label for="quantidade">Quantidade: </label>
+                    <br>
+                    <input type="text" id="quantidade" name="quantidade">
+                    <br>
+                    <label for="imagem">URL da imagem: </label>
+                    <br>
+                    <input type="text" id="imagem" name="imagem">
+                    <br>
+                    <label for="categoria">Categoria: </label>
+                    <br>
+                    <input type="text" id="categoria" name="categoria">
+                    <br>
+                    <label for="fabricacao">Local de fabricação: </label>
+                    <br>
+                    <input type="text" name="fabricacao" id="fabricacao">
+                    <br>
+                    <button type="submit" id="cadastro">Cadastrar</button>
+                </form>
+            </details>
+            <!--Alteração de produtos-->
+            <details>
+                <summary>Alterar produto</summary>
+                <!--Form para alterar produtos-->
+                <form>
+                    <label for="id_produto">ID do produto: </label>
+                    <br>
+                    <input type="text" id="id_produto" name="id_produto">
+                    <br>
+                    <h5>Deixar em branco campos que não precisam de alterações!</h5>
+                    <label for="novo_nome">Novo nome: </label>
+                    <br>
+                    <input type="text" id="novo_nome" name="novo_nome">
+                    <br>
+                    <label for="nova_quantidade">Nova quantidade: </label>
+                    <br>
+                    <input type="text" id="nova_quantidade" name="nova_quantidade">
+                    <br>
+                    <label for="nova_imagem">Nova URL da imagem: </label>
+                    <br>
+                    <input type="text" id="nova_imagem" name="nova_imagem">
+                    <br>
+                    <label for="nova_categoria">Nova categoria: </label>
+                    <br>
+                    <input type="text" id="nova_categoria" name="nova_categoria">
+                    <br>
+                    <label for="novo_fabricacao">Novo local de fabricação: </label>
+                    <br>
+                    <input type="text" name="novo_fabricacao" id="novo_fabricacao">
+                    <br>
+                    <button type="submit" id="alteracao">Alterar</button>
+                </form>
+            </details>
+            <!--Pesquisar por nome-->
+            <details>
+                <summary>Pesquisar por nome</summary>
+                <form>
+                    <label for="nome_pesquisa">Nome do produto: </label>
+                    <br>
+                    <input type="text" id="nome_pesquisa" name="nome_pesquisa">
+                    <br>
+                    <button type="submit" id="pesquisa">Pesquisar</button>
+                </form>
+                <div id="resultado-pesquisa">
+                    <!--Resultados da pesquisa serão exibidos aqui via JS-->
+                </div>
+            </details>
+            <!--Remover produto-->
+            <details>
+                <summary>Remover produto</summary>
+                <form>
+                    <label for="id_remocao">ID do produto: </label>
+                    <br>
+                    <input type="text" id="id_remocao" name="id_remocao">
+                    <br>
+                    <button type="submit" id="remocao">Remover</button>
+                </form>
+            </details>
+            <!--Listar produtos-->
+            <details>
+                <summary>Listar produtos</summary>
+                <form>
+                    <button type="submit" id="listagem">Listar</button>
+                </form>
+                <div id="lista-produtos">
+                    <!--Produtos serão inseridos dinâmicamente via JS-->
+                </div>
+            </details>
+            <!--Exibir um produto específico-->
+            <details>
+                <summary>Exibir um produto específico</summary>
+                <form>
+                    <label for="id_exibicao">ID do produto: </label>
+                    <br>
+                    <input type="text" id="id_exibicao" name="id_exibicao">
+                    <br>
+                    <button type="submit" id="exibicao">Exibir</button>
+                </form>
+                <div id="produto-especifico">
+                    <!--Produto específico será exibido aqui via JS-->
+                </div>
+            </details>
+        </div>
+    </main>
+</body>
+</html>
