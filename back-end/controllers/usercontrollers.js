@@ -99,8 +99,7 @@ function autenticar(req, res) {
         return res.json( {erro: "Sem login"});
     }
 
-    /*Retorna um json com todas as informações
-    do atual usuário da sessão */
+    //Retorna um json com todas as informações do atual usuário da sessão //
     return res.json({
         nome: req.session.usuario,
         onepiece: req.session.isonepiece,
